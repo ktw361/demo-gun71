@@ -1,0 +1,117 @@
+body {
+    margin-left: 2em;
+    margin-right: 2em;
+}
+main {
+    background-color: gray;
+    display: grid;
+    grid-template:
+    "nav meta" min-content
+    "nav display" 1fr
+    / min-content 1fr
+}
+
+nav {
+    grid-area: nav;
+    padding-left: 0.5em;
+    border: 1px solid black;
+    overflow: auto;
+    resize: horizontal;
+    width: 8em;
+    min-width: min-content;
+    max-width: 18em;
+}
+
+#container {
+    grid-area: display;
+    /* border: 3px dotted green; */
+    margin: 0em;
+    padding-left: 0.5em;
+    display: grid;
+    grid-template-rows: auto auto;
+    /* display: grid;
+    grid-template-columns: repeat(5, 1fr); */
+}
+#gifContainer {
+    margin: 0 auto;
+    grid-row: span 1;
+}
+#frameContainer {
+    grid-row: span 1;
+    /* overflow: scroll;
+    max-height: 48em; */
+}
+
+img {
+    padding: 0em;
+}
+
+#gifContainer h3 {
+    text-align: center;
+    padding: 0em; 
+    margin: 0.5em;
+}
+
+#annotContainer {
+    grid-area: meta;
+}
+#filters {
+    padding: 0.35em;
+    display: grid;
+    grid-template-columns: 6em 12em;
+    grid-gap: 0.25em;
+}
+input[text] {
+    width: 4em;
+}
+
+/* Make a scrollable table */
+#annotTable          { 
+    overflow: auto; 
+    height: 24em; /*24em;*/ 
+    border: 1px solid black;
+    resize: vertical;
+    min-height: min-content;
+    max-height: 24em;
+}
+#annotTable thead th { position: sticky; top: 0; z-index: 1; }
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; }
+th, td { padding: 8px 12px; }
+th     { background:#eee; }
+
+#frameTable {
+    grid-row: 1/1;
+}
+
+#frameTable td { 
+    border: 1px solid black; 
+    margin: 0 auto;
+}
+#frameTable td {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    padding-top: 0em;
+    padding-bottom: 0em;
+}
+#frameTable td p { 
+    margin: inherit;
+    padding: inherit;
+}
+#frameTable td img { 
+    margin: 0 auto;
+}
+
+ ul {
+    list-style-type: none;
+    padding-left: 0.5em;
+ }
+
+ input[type=range] {
+    width: 8em;
+ }
+
+ video {
+     display: block;
+     margin: 0 auto;
+ }

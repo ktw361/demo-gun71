@@ -75,6 +75,14 @@ class Runner:
 
         self.vid_df = dict()
     
+    def _get_vid_df(self, vid):
+        if vid in self.vid_df:
+            vid_df = self.vid_df[vid]
+        else:
+            vid_df = epichoa.load_video_hoa(vid, self.hoa_path)
+            self.vid_df[vid] = vid_df
+        return vid_df
+    
     def prepare_frame_input(self, vid, frame_idx):
         """ Retrieve hand bounding boxes of a frame.
 
@@ -83,12 +91,7 @@ class Runner:
             img: PIL.Image
             l_box, r_box: ndarray of (4,)
         """
-        if vid in self.vid_df:
-            vid_df = self.vid_df[vid]
-        else:
-            vid_df = epichoa.load_video_hoa(vid, self.hoa_path)
-            self.vid_df[vid] = vid_df
-        vid_df = self.vid_df[vid]
+        vid_df = self._get_vid_df(vid)
         img = read_epic_image(vid, frame_idx, self.epic_root, as_pil=True)
         entries = vid_df[vid_df.frame == frame_idx]
         if len(entries) == 0:
@@ -160,12 +163,8 @@ class Runner:
 
         return l_grasp, r_grasp, l_score, r_score
 
-    def compute_frame_stat(self, vid, frame_idx):
+    def compute_frame_stat(self, vid: str, frame_idx: int):
         """_summary_
-
-        Args:
-            vid (_type_): _description_
-            frame_idx (_type_): _description_
 
         Returns:
             l_grasp, r_grasp: str

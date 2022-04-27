@@ -1,7 +1,6 @@
 import os
 import os.path as osp
 import tqdm
-import torch
 import pandas as pd
 import numpy as np
 import torch.nn.functional as F

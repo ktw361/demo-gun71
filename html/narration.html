@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Epic Clip Viewer</title>
+        <link rel="stylesheet" href="narration.css" />
+
+        <!-- <script type="module" src="script.js"></script> -->
+        <script src="lib/utils.js"></script>
+        <script src="narration.js"></script>
+    </head>
+
+    <header>
+      <h1>
+        Narration Grasp Distribution
+      </h1>
+
+    </header>
+
+    <body>
+      <main id="dataPane">
+        <nav id="nav_bar">
+          <ul>
+            <!-- <li>
+              <input type="checkbox" name="show_gif", id="show_gif", onclick="show_gif_check(this);" checked>
+              <label for="show_gif">Show GIF</label>
+            </li>
+            <li>
+              <input type="checkbox" name="show_frames", id="show_frames", onclick="show_frames_check(this);" checked>
+              <label for="show_frames">Show Frames</label>
+            </li> -->
+
+          </ul>
+
+          <!-- <label for="gif_step">Gif interval: </label> <label id="gif_interval">2</label>
+          <input type="range" id="gif_step"
+          min="0" max="100" step="25" value="25"
+          list="steplist" onchange="change_gif_step(this.value);">
+          <datalist id="steplist">
+            <option>0</option>
+            <option>25</option>
+            <option>50</option>
+            <option>75</option>
+            <option>100</option>
+          </datalist> -->
+
+          <!-- <input type="range" min="1" max="20" value="50" class="slider" id="gif_step"> -->
+
+        </nav>
+
+        <section id="annotContainer">
+
+          <section id="filters">
+            <label class="filter_label" for="vid_filter">VID filter:</label>
+            <input type="text" id="vid_filter" 
+            onkeyup="search_vid()" placeholder="Search for vid.." title="Type in a vid">
+
+            <label for="frame_filter">Frame filter:</label>
+            <input type="text" id="frame_filter" 
+            onkeyup="search_frame()" placeholder="Search for frame.." title="Type in a number">
+
+            <label for="noun_filter">Noun filter:</label>
+            <input type="text" id="noun_filter" 
+            onkeyup="search_noun()" placeholder="Search for nouns.." title="Type in a name">
+          </section>
+
+          <section id="annotTable">
+          <table tabindex="0">
+            <thead>
+              <tr>
+                <th>narration_id</th>
+                <!--th>participand_id</th-->
+                <th>pid</th>
+                <!--th>video_id</th-->
+                <th>vid</th>
+                <th>narration
+                  _timestamp</th>
+                <th>stop
+                  _timestamp</th>
+                <th>start
+                  _frame</th>
+                <th>stop
+                  _frame</th>
+                <th>narration</th>
+                <th>verb</th>
+                <th>verb
+                  _class</th>
+                <th>noun</th>
+                <th>noun_
+                  class</th>
+                <th>all_
+                  nouns</th>
+                <th>all_noun
+                  _classes</th>
+              </tr>
+            </thead>
+            <tbody id="annot_body">
+            </tbody>
+          </table>
+          </section>
+        </section>
+      
+          <section id="videoContainer">
+            <h3 style="text-align: center"> Predicted Distribution as a function of Time </h3>
+            <video id='video_elem' width="800" controls>
+                <source id='video_source' type="video/mp4">
+              </video>
+          </section>
+        </section>
+      
+      </main>
+
+    </body>
+
+</html>
