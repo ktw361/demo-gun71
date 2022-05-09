@@ -1,3 +1,5 @@
+# Please refer to https://github.com/uiuc-robovision/hands-as-probes for official usage.
+
 # Demo for obtaining hand grasp given hand detections
 
 ```bash
