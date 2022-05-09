@@ -1,7 +1,3 @@
-import sys
-sys.path.append('/home/skynet/Zhifan/homan-full/')
-from homan.datasets import epichoa
-
 import pickle
 import os
 import os.path as osp
@@ -12,6 +8,8 @@ import torch.nn.functional as F
 import torchvision.transforms as TF
 import torchvision.transforms.functional as TFF
 from model_grasp import ClassificationNet, SimCLRwGUN71
+
+from epic_lib import epichoa
 
 from demo_handgrasp import create_bbox_fromhand, crop_image
 from utils import set_torch_seed, load_config
